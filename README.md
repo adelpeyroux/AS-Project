@@ -5,3 +5,16 @@ Groupe :
 - Gamelas Guillaume
 - Monseigne Thibaut
 - Delpeyroux Arnaud
+
+# Structure projet : 
+## Sources : 
+Les fichiers sources sont à placées dans le répertoire **src**.
+
+## Headers : 
+Les fichiers d'en-tetes sont a placer dans le repertoire **header**.
+
+## Flex et bison : 
+Les fichier flex et bison seront mis dans le repertoire **parser**.
+
+## Fichiers générés : 
+Ces fichier devront etre dééplacer suite a création dans le repertoire **generated**.
