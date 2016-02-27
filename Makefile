@@ -10,15 +10,15 @@ OBJ= $(SRC:.c=.o)
 
 all: $(EXEC)
 
-generated/calc.tab.c generated/calc.tab.h: parser/calc.y
-	bison -d -v parser/calc.y
-	mv calc.output calc.tab.c calc.tab.h generated/
+generated/parser.tab.c generated/parser.tab.h: parser/parser.y
+	bison -d -v parser/parser.y
+	mv parser.output parser.tab.c parser.tab.h generated/
 
-generated/lex.yy.c: parser/calc.l calc.tab.h
-	flex parser/calc.l
+generated/lex.yy.c: parser/parser.l parser.tab.h
+	flex parser/parser.l
 	mv lex.yy.c generated/
 
-shg: generated/calc.tab.h generated/calc.tab.c generated/lex.yy.c $(BUILDDIR)/main.o $(BUILDDIR)/variables.o
+shg: generated/parser.tab.h generated/parser.tab.c generated/lex.yy.c $(BUILDDIR)/main.o $(BUILDDIR)/variables.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 $(BUILDDIR)/%.o: %.c
