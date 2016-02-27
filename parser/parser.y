@@ -8,8 +8,9 @@ void yyerror(char*);
 
 %}
 
+%token SPACE
 
 %%
 
-
-%%
+e : 
+  ;

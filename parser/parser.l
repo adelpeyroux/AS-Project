@@ -17,8 +17,8 @@ TAG [[:alpha:]_][[:alnum:]_\.']+
 \/							{ return '/'; }
 ,							{ return ','; }
 =							{ return '='; }
-[[:space:]]					{ return SPACE; }
+[[:blank:]]					{ return SPACE; }
 \"							{ BEGIN TEXT; }
-<TEXT>\"					{ BRGIN INITIAL; }
+<TEXT>\"					{ BEGIN INITIAL; }
 .|\n			;
 	
