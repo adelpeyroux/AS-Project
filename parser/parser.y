@@ -9,8 +9,25 @@ void yyerror(char*);
 %}
 
 %token SPACE
+%token TEXT
 
 %%
 
-e : 
-  ;
+f	: 	'{' f '}'
+	| 	t ts
+	;
+	
+ts	:	t t
+	|
+	;
+
+t	:	TAG '[' as ']' '{' f '}'
+	|	TAG '{' f '}'
+	| 	TEXT
+	;
+	
+as	: 	a a
+	;
+	
+a	:	TAG '=' TEXT
+	;

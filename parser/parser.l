@@ -4,9 +4,10 @@
 %}
 
 %option noinput nounput
-%x TEXT
+%x S_TEXT
 
-TAG [[:alpha:]_][[:alnum:]_\.']+ 
+TAG _[[:alnum:]]+[[:alnum:]_\.']*|[[:alnum:]][[:alnum:]_\.']*
+
 
 %%
 
@@ -18,7 +19,9 @@ TAG [[:alpha:]_][[:alnum:]_\.']+
 ,							{ return ','; }
 =							{ return '='; }
 [[:blank:]]					{ return SPACE; }
-\"							{ BEGIN TEXT; }
-<TEXT>\"					{ BEGIN INITIAL; }
+\"							{ BEGIN S_TEXT; }
+<S_TEXT>\"					{ BEGIN INITIAL; }
+<S_TEXT>[[:blank:]]			{}
+<S_TEXT>.*|\n				{ return TEXT; }
 .|\n			;
 	
