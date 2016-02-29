@@ -5,6 +5,7 @@ Groupe :
 - Gamelas Guillaume
 - Monseigne Thibaut
 - Delpeyroux Arnaud
+- Emery Ysabelle
 
 # Structure projet : 
 ## Sources : 
