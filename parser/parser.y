@@ -10,6 +10,7 @@ void yyerror(char*);
 
 %token SPACE
 %token TEXT
+%token TAG
 
 %%
 
