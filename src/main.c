@@ -8,5 +8,5 @@ void yyerror (char *s) {
 }
 
 int main(){
-	return 0;
+	yyparse();
 }

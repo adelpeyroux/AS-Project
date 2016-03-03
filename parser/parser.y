@@ -15,19 +15,18 @@ void yyerror(char*);
 %%
 
 f	: 	'{' f '}'
-	| 	t ts
+	| 	f t
+	|	%empty
 	;
 	
-ts	:	t t
-	|
-	;
 
 t	:	TAG '[' as ']' '{' f '}'
 	|	TAG '{' f '}'
 	| 	TEXT
 	;
 	
-as	: 	a a
+as	: 	as a
+	|	a
 	;
 	
 a	:	TAG '=' TEXT

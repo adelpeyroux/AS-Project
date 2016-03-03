@@ -20,7 +20,7 @@ struct s_tree {
     char * label;              //étiquette du nœud
     bool nullary;              //nœud vide, par exemple <br/>
     bool space;                //nœud suivi d'un espace
-    enum type tp;              //type du nœud. nullary doit être tr	ue s tp vaut word
+    enum type tp;              //type du nœud. nullary doit être true si tp vaut word
     struct s_attributes * attr;  //attributs du nœud
     struct s_tree * daughters;   //fils gauche, qui doit être NULL si nullary est true
     struct s_tree * right;       //frère droit
@@ -42,7 +42,9 @@ void add_attributes(attributes attrs, char* key, char* value);
  * Tree Part
  * Public functions
  */
-tree create_tree(char* label, bool nullary, bool space, enum type tp, attributes attrs, tree children, tree right); // YOUHOU ! L'ECOLOGIE C'EST TROP BIEN ET LES ARBRES AUSSI ! 
-void destroy_tree(tree t); // BEURK ! MORT A LA DEFORESTATION !
+ // YOUHOU ! L'ECOLOGIE C'EST TROP BIEN ET LES ARBRES AUSSI ! 
+tree create_tree(char* label, bool nullary, bool space, enum type tp); 
+ // BEURK ! MORT A LA DEFORESTATION !
+void destroy_tree(tree t);
 
 #endif
