@@ -1,4 +1,14 @@
 %{
+/*	GRAMMAIRE
+CONTENU							->	CONTENU MOT
+CONTENU							->	CONTENU LIAISON
+CONTENU							->	LIAISON
+CONTENU							->	MOT
+
+ETIQUETTE[ATTRIBUT]{"CONTENU"}	->	<ETIQUETTE ATTRIBUT>CONTENU</ETIQUETTE>
+ETIQUETTE{"CONTENU"}			->	<ETIQUETTE>CONTENU</ETIQUETTE>
+ETIQUETTE/						->	<ETIQUETTE/>
+*/
 #include <stdio.h>
 #include <math.h>
 #include "../header/tree.h"
