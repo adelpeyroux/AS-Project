@@ -10,6 +10,7 @@
 
 \"							{ BEGIN S_TEXT; }
 <S_TEXT>\"					{ BEGIN INITIAL; }
+<<<<<<< HEAD
 <S_TEXT>[[:alnum:]]*		{ yylval = strdup(yytext);	return MOT; }
 <S_TEXT>\\\"				{ yylval = strdup(yytext);	return LIAISON; }
 <S_TEXT>.					{ yylval = strdup(yytext);	return LIAISON; }
@@ -30,3 +31,9 @@
 //SPACE		: il ne gardera qu'un espace si on en a plusieurs
 //OPERATEUR	: différents opérateurs necessaire à définir les balisage.
 //Les deux derniers servent de bazar si On a oublié quleque chose
+=======
+<S_TEXT>[^[:blank:]]		{ return TEXT; }
+<S_TEXT>.*|\n				{}
+.|\n			;
+	
+>>>>>>> 782b59f4b8fd8761888b7ddaa096e8c032c8e4eb

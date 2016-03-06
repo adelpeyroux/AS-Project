@@ -15,12 +15,12 @@ attributes create_attributes(char* key, char* value){
 }
 
 void destroy_attributes(attributes attrs){
-	attributes temp = attrs;
-	attributes next = (temp == NULL ? NULL : temp->next);
-	while(next != NULL){
-		destroy_attributes(temp);
-		attributes temp = next;
-		attributes next = (temp == NULL ? NULL : temp->next);
+	attributes next = (attrs == NULL ? NULL : attrs->next);
+	if (next != NULL){
+		destroy_attributes(next);
+	}
+	if (attrs != NULL){
+		free(attrs);		
 	}
 }
 
@@ -31,10 +31,33 @@ void add_attributes(attributes attrs, char* key, char* value){
 	attrs = new_attr;
 }
 
-tree create_tree(char* label, bool nullary, bool space, enum type tp, attributes attrs, tree children, tree right){
-
+tree create_tree(char* label, bool nullary, bool space, enum type tp){
+	tree t = malloc(sizeof(struct s_tree));
+	
+	t->label = label;
+	t->space = space;
+	if (tp == t_word){
+		t->nullary = true;
+	} else {
+		t->nullary = nullary;
+	}
+	t->tp = tp;
+	
+	t->attr = NULL;
+	t->daughters = NULL;
+	
+	return t;
 }
 
 void destroy_tree(tree t){
-
+	if (t->attr){
+		destroy_attributes(t->attr);
+	}
+	if (t->daughters != NULL){
+		destroy_tree(t->daughters);
+	}
+	if (t->right != NULL){
+		destroy_tree(t->right);
+	}
+	free(t);
 }
