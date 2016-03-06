@@ -17,7 +17,6 @@ struct s_attributes{
 };
 
 struct s_tree {
-<<<<<<< HEAD
     char * label;				//étiquette du nœud
     bool nullary;				//nœud vide, par exemple <br/>
     bool space;					//nœud suivi d'un espace
@@ -25,15 +24,6 @@ struct s_tree {
     struct s_attributes * attr;	//attributs du nœud
     struct s_tree * daughters;	//fils gauche, qui doit être NULL si nullary est true
     struct s_tree * right;		//frère droit
-=======
-    char * label;              //étiquette du nœud
-    bool nullary;              //nœud vide, par exemple <br/>
-    bool space;                //nœud suivi d'un espace
-    enum type tp;              //type du nœud. nullary doit être true si tp vaut word
-    struct s_attributes * attr;  //attributs du nœud
-    struct s_tree * daughters;   //fils gauche, qui doit être NULL si nullary est true
-    struct s_tree * right;       //frère droit
->>>>>>> 782b59f4b8fd8761888b7ddaa096e8c032c8e4eb
 };
 
 typedef struct s_tree * tree;

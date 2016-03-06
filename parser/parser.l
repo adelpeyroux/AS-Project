@@ -10,7 +10,6 @@
 
 \"							{ BEGIN S_TEXT; }
 <S_TEXT>\"					{ BEGIN INITIAL; }
-<<<<<<< HEAD
 <S_TEXT>[[:alnum:]]*		{ yylval = strdup(yytext);	return MOT; }
 <S_TEXT>\\\"				{ yylval = strdup(yytext);	return LIAISON; }
 <S_TEXT>.					{ yylval = strdup(yytext);	return LIAISON; }
@@ -23,7 +22,7 @@
 \n+							{ return EOL; }
 .							{return yytext[0];}
 %%
-//S_TEXT	: Etat exvclusifs permettant de définir un texte litéral, on perd les guillemets.
+//S_TEXT	: Etat exclusifs permettant de définir un texte litéral, on perd les guillemets.
 //				Il faudra les remettre dans le cas ou il serait précédé d'un =.
 //MOT		: un mot (au sens large) en caractère alphanumérique
 //LIAISON	: des espaces ou un signe de poncutation les mots chelou genre 23-34àaio compteront comme 3 mots mais ce n'est pas important
@@ -31,9 +30,3 @@
 //SPACE		: il ne gardera qu'un espace si on en a plusieurs
 //OPERATEUR	: différents opérateurs necessaire à définir les balisage.
 //Les deux derniers servent de bazar si On a oublié quleque chose
-=======
-<S_TEXT>[^[:blank:]]		{ return TEXT; }
-<S_TEXT>.*|\n				{}
-.|\n			;
-	
->>>>>>> 782b59f4b8fd8761888b7ddaa096e8c032c8e4eb
