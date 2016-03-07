@@ -17,16 +17,16 @@
 [[:alpha:]_][[:alnum:]_]*	{ yylval = strdup(yytext);	return ETIQUETTE;}
 [[:blank:]]+				{ return SPACE; }
 
-"["|"]"|"{"|"}"|"/"|","|"="	{ yylval = strdup(yytext);	return OPERATEUR;}
+"["|"]"|"{"|"}"|"/"|","|"="	{ return yytext[0]; }
 
 \n+							{ return EOL; }
-.							{return yytext[0];}
+.							{ return yytext[0];}
 %%
-//S_TEXT	: Etat exclusifs permettant de définir un texte litéral, on perd les guillemets.
-//				Il faudra les remettre dans le cas ou il serait précédé d'un =.
-//MOT		: un mot (au sens large) en caractère alphanumérique
-//LIAISON	: des espaces ou un signe de poncutation les mots chelou genre 23-34àaio compteront comme 3 mots mais ce n'est pas important
+//S_TEXT	: Etat exclusifs permettant de definir un texte literal, on perd les guillemets.
+//				Il faudra les remettre dans le cas ou il serait precede d'un =.
+//MOT		: un mot (au sens large) en caractere alphanumï¿½rique
+//LIAISON	: des espaces ou un signe de poncutation les mots chelou genre 23-34aaio compteront comme 3 mots mais ce n'est pas important
 //ETIQUETTE	: Debut d'une balise html ou d'un argument suivant ou on se situe (entre crochet ou non)
 //SPACE		: il ne gardera qu'un espace si on en a plusieurs
-//OPERATEUR	: différents opérateurs necessaire à définir les balisage.
-//Les deux derniers servent de bazar si On a oublié quleque chose
+//OPERATEUR	: differents operateurs necessaire a definir les balisage.
+//Les deux derniers servent de bazar si On a oublie quleque chose
