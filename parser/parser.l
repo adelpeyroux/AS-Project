@@ -10,11 +10,11 @@
 
 \"							{ BEGIN S_TEXT; }
 <S_TEXT>\"					{ BEGIN INITIAL; }
-<S_TEXT>[[:alnum:]]*		{ yylval = strdup(yytext);	return MOT; }
-<S_TEXT>\\\"				{ yylval = strdup(yytext);	return LIAISON; }
-<S_TEXT>.					{ yylval = strdup(yytext);	return LIAISON; }
+<S_TEXT>[[:alnum:]]*		{ yylval = strdup(yytext);	return WORD; }
+<S_TEXT>\\\"				{ yylval = strdup(yytext);	return LINK; }
+<S_TEXT>.					{ yylval = strdup(yytext);	return LINK; }
 
-[[:alpha:]_][[:alnum:]_]*	{ yylval = strdup(yytext);	return ETIQUETTE;}
+[[:alpha:]_][[:alnum:]_]*	{ yylval = strdup(yytext);	return TAG;}
 [[:blank:]]+				{ return SPACE; }
 
 "["|"]"|"{"|"}"|"/"|","|"="	{ return yytext[0]; }

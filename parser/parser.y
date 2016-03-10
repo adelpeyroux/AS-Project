@@ -32,6 +32,9 @@ void yyerror(char*);
 %token SPACE
 %token TEXT
 %token TAG
+%token WORD
+%token LINK
+%token EOL
 
 %%
 
